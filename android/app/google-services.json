@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "927138461883",
+    "project_id": "codeglider-a05e1",
+    "storage_bucket": "codeglider-a05e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927138461883:android:5f1639bc99384792d5519e",
+        "android_client_info": {
+          "package_name": "com.example.code_glider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927138461883-njq2qb51k2nu60h64nc3d7r4a62bs8oc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcPcj64uHEVL8FKgYLQaCU3-2pw60Iz3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927138461883-njq2qb51k2nu60h64nc3d7r4a62bs8oc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

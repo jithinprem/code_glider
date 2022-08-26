@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:code_glider/screens/loginscreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+Future main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(NaviPage());
 }
 
 class NaviPage extends StatefulWidget {
@@ -16,7 +22,10 @@ class _NaviPageState extends State<NaviPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       // navigator
-      initialRoute: ,
+      initialRoute: LoginScreen.id,
+      routes: {
+        LoginScreen.id :(context)=> LoginScreen(),
+      },
     );
   }
 }
