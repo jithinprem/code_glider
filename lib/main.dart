@@ -1,3 +1,4 @@
+import 'package:code_glider/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:code_glider/screens/loginscreen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -22,9 +23,10 @@ class _NaviPageState extends State<NaviPage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       // navigator
-      initialRoute: LoginScreen.id,
+      initialRoute: HomePage.id,
       routes: {
         LoginScreen.id :(context)=> LoginScreen(),
+        HomePage.id : (context)=> HomePage(),
       },
     );
   }

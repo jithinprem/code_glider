@@ -37,6 +37,8 @@ dependencies:
   google_fonts: ^3.0.1
   firebase_auth: ^3.7.0
   cloud_firestore: ^3.4.6
+  font_awesome_flutter: ^10.1.0
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:

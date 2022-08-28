@@ -13,6 +13,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController usernamecontrol = TextEditingController();
   TextEditingController passwordcontrol = TextEditingController();
+  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -38,11 +39,19 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   LoginEntry(usernamecontrol: usernamecontrol, txt: 'username'),
-                  LoginEntry(usernamecontrol: usernamecontrol, txt: 'password'),
+                  LoginEntry(usernamecontrol: passwordcontrol, txt: 'password'),
                   Column(
                     children: <Widget>[
-                      LongUsualButton('Login', () {
-                        print('hello');
+                      LongUsualButton('Login', () async{
+                        try{
+                          UserCredential usercred = await _auth.createUserWithEmailAndPassword(email: usernamecontrol.text, password: passwordcontrol.text);
+
+                        }
+                        on FirebaseAuthException catch(e){
+                          if(e.code == "email-already-in-use"){
+                            print('the accound already in use. show a warning bar');
+                          }
+                        }
                       }),
                       LongUsualButton('SignUp', () {
                         print('hello');
