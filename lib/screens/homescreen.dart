@@ -16,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     int progress_val = 40;
+    int projects_val = 3;
 
 
 
@@ -51,24 +52,13 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           margin: EdgeInsets.only(left: 10, top: 10),
                           child: Text(
-                            get_comment_completed(progress_val),
+                            get_comment_completed(progress_val+projects_val),
                             style: GoogleFonts.poppins(),
                             textAlign: TextAlign.left,
                           ),
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 6.0),
-                          child: LinearPercentIndicator(
-                            width: MediaQuery.of(context).size.width - 40,
-                            animation: true,
-                            lineHeight: 15.0,
-                            animationDuration: 2500,
-                            percent: progress_val/100,
-                            center: Text("$progress_val.0%", style: GoogleFonts.poppins(fontSize: 10),),
-                            barRadius: Radius.circular(30),
-                            progressColor: Colors.green,
-                          ),
-                        ),
+                        Progressbars(context, 'Chapters', progress_val),
+                        Progressbars(context, 'Projects', projects_val),
                       ],
                     ),
                   ),
@@ -132,4 +122,33 @@ class TheSquareBox extends StatelessWidget {
       width: 160,
     );
   }
+}
+
+Widget Progressbars(@required context, String txt, int perc){
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Container(
+        margin: EdgeInsets.only(left: 10, top: 10),
+        child: Text(
+          txt,
+          style: GoogleFonts.poppins(),
+          textAlign: TextAlign.left,
+        ),
+      ),
+      Padding(
+        padding: EdgeInsets.only(top: 6.0),
+        child: LinearPercentIndicator(
+          width: MediaQuery.of(context).size.width*70/100,
+          animation: true,
+          lineHeight: 15.0,
+          animationDuration: 2500,
+          percent: perc/100,
+          center: Text("$perc.0%", style: GoogleFonts.poppins(fontSize: 10, color: Colors.grey[900]),),
+          barRadius: Radius.circular(30),
+          progressColor: perc > 5 ? Colors.green : Colors.orange.shade200,
+        ),
+      ),
+    ],
+  );
 }
